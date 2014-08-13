@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android" >
+    <item>
+        <rotate
+            android:fromDegrees="45"
+            android:toDegrees="45"
+            android:pivotX="-40%"
+            android:pivotY="95%" >
+            <shape
+                android:shape="rectangle" >
+                <solid
+                    android:color="#9a9a9a" />
+            </shape>
+        </rotate>
+    </item>
+</layer-list><!-- From: file:/Users/PetoU/Documents/AndroiStudioProjects/ProductHunt/app/src/main/res/drawable/triangle.xml -->
