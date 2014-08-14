@@ -4,6 +4,26 @@
     <dataSet config="main" >
         <source path="/Users/PetoU/Documents/AndroiStudioProjects/ProductHunt/app/src/main/res" >
             <file
+                name="cell_both"
+                path="/Users/PetoU/Documents/AndroiStudioProjects/ProductHunt/app/src/main/res/drawable/cell_both.9.png"
+                qualifiers=""
+                type="drawable" />
+            <file
+                name="divider"
+                path="/Users/PetoU/Documents/AndroiStudioProjects/ProductHunt/app/src/main/res/drawable/divider.xml"
+                qualifiers=""
+                type="drawable" />
+            <file
+                name="producthunt_logo"
+                path="/Users/PetoU/Documents/AndroiStudioProjects/ProductHunt/app/src/main/res/drawable/producthunt_logo.png"
+                qualifiers=""
+                type="drawable" />
+            <file
+                name="triangle"
+                path="/Users/PetoU/Documents/AndroiStudioProjects/ProductHunt/app/src/main/res/drawable/triangle.xml"
+                qualifiers=""
+                type="drawable" />
+            <file
                 name="ic_launcher"
                 path="/Users/PetoU/Documents/AndroiStudioProjects/ProductHunt/app/src/main/res/drawable-hdpi/ic_launcher.png"
                 qualifiers="hdpi-v4"
@@ -34,6 +54,11 @@
                 qualifiers=""
                 type="layout" />
             <file
+                name="listview_cell"
+                path="/Users/PetoU/Documents/AndroiStudioProjects/ProductHunt/app/src/main/res/layout/listview_cell.xml"
+                qualifiers=""
+                type="layout" />
+            <file
                 name="my"
                 path="/Users/PetoU/Documents/AndroiStudioProjects/ProductHunt/app/src/main/res/menu/my.xml"
                 qualifiers=""
@@ -59,9 +84,9 @@
                 </string>
                 <string name="NAME" >Name
                 </string>
-                <string name="hello_world" >Hello world!
-                </string>
                 <string name="VOTES" >votes
+                </string>
+                <string name="hello_world" >Hello world!
                 </string>
                 <string name="DESCRIPTION" >description
                 </string>
@@ -88,26 +113,6 @@
                 path="/Users/PetoU/Documents/AndroiStudioProjects/ProductHunt/app/src/main/res/xml/widget_provider.xml"
                 qualifiers=""
                 type="xml" />
-            <file
-                name="listview_cell"
-                path="/Users/PetoU/Documents/AndroiStudioProjects/ProductHunt/app/src/main/res/layout/listview_cell.xml"
-                qualifiers=""
-                type="layout" />
-            <file
-                name="triangle"
-                path="/Users/PetoU/Documents/AndroiStudioProjects/ProductHunt/app/src/main/res/drawable/triangle.xml"
-                qualifiers=""
-                type="drawable" />
-            <file
-                name="cell_both"
-                path="/Users/PetoU/Documents/AndroiStudioProjects/ProductHunt/app/src/main/res/drawable/cell_both.9.png"
-                qualifiers=""
-                type="drawable" />
-            <file
-                name="divider"
-                path="/Users/PetoU/Documents/AndroiStudioProjects/ProductHunt/app/src/main/res/drawable/divider.xml"
-                qualifiers=""
-                type="drawable" />
         </source>
         <source path="/Users/PetoU/Documents/AndroiStudioProjects/ProductHunt/app/build/generated/res/rs/debug" />
         <source path="/Users/PetoU/Documents/AndroiStudioProjects/ProductHunt/app/build/generated/res/generated/debug" />

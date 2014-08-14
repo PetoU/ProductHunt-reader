@@ -33,8 +33,6 @@ public class ViewFactory implements RemoteViewsService.RemoteViewsFactory {
         } catch (JSONException e) {
             Log.e(TAG, e.getMessage());
         }
-
-        Log.d(TAG, mArray.toString());
     }
 
     @Override

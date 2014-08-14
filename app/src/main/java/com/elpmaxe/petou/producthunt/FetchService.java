@@ -2,7 +2,6 @@ package com.elpmaxe.petou.producthunt;
 
 import android.app.IntentService;
 import android.appwidget.AppWidgetManager;
-import android.content.ComponentName;
 import android.content.Intent;
 import android.util.Log;
 
@@ -10,17 +9,10 @@ import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.DefaultHttpClient;
-import org.json.JSONException;
-import org.json.JSONObject;
-import org.jsoup.Jsoup;
-import org.jsoup.nodes.Document;
-import org.jsoup.nodes.Element;
-import org.jsoup.select.Elements;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.ArrayList;
 
 /**
  * Created by PetoU on 05/08/14.
@@ -28,9 +20,11 @@ import java.util.ArrayList;
 public class FetchService extends IntentService {
 
     private static final String TAG = "FetchService";
-    public static final String CALLBACK = "callback";
+    public static final String APPWIDGET_CALLBACK = "appwidget_callback";
+    public static final String ACTIVITY_CALLBACK = "activity_callback";
 
     private int[] mAppWidgetIds;
+    private String mCallback;
 
     /**
      * Creates an IntentService.  Invoked by your subclass's constructor.
@@ -47,8 +41,8 @@ public class FetchService extends IntentService {
 
     @Override
     protected void onHandleIntent(Intent intent) {
-        Log.d(TAG, "onHandleIntent");
         mAppWidgetIds = intent.getIntArrayExtra(AppWidgetManager.EXTRA_APPWIDGET_IDS);
+        mCallback = intent.getAction();
         fetchData();
     }
 
@@ -61,9 +55,8 @@ public class FetchService extends IntentService {
 
         try {
 
-            BufferedReader rd = null;
             response = client.execute(request);
-            rd = new BufferedReader(new InputStreamReader(response.getEntity().getContent()));
+            BufferedReader rd = new BufferedReader(new InputStreamReader(response.getEntity().getContent()));
 
             result = new StringBuffer();
             String line = "";
@@ -72,20 +65,28 @@ public class FetchService extends IntentService {
                 result.append(line);
             }
 
-            callback(result.toString());
+            sendData(result.toString(), mCallback);
 
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
-    private void callback(String result) {
+    private void sendData(String result, String callback) {
 
-        if (result != null) {
+        if (result != null && callback.equals(FetchService.APPWIDGET_CALLBACK)) {
             Intent intent = new Intent(getApplicationContext(), AppWidget.class);
-            intent.setAction(FetchService.CALLBACK);
+            intent.setAction(FetchService.APPWIDGET_CALLBACK);
             intent.putExtra(AppWidgetManager.EXTRA_CUSTOM_EXTRAS, result);
             intent.putExtra(AppWidgetManager.EXTRA_APPWIDGET_IDS, mAppWidgetIds);
+
+            sendBroadcast(intent);
+        }
+
+        if (result != null && callback.equals(FetchService.ACTIVITY_CALLBACK)) {
+            Log.d(TAG, "activity callback" );
+            Intent intent = new Intent(Intent.ACTION_PROVIDER_CHANGED);
+            intent.putExtra(AppWidgetManager.EXTRA_CUSTOM_EXTRAS, result);
 
             sendBroadcast(intent);
         }

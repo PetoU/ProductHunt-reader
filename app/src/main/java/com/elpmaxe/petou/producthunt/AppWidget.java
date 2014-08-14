@@ -6,17 +6,9 @@ import android.appwidget.AppWidgetProvider;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
-import android.os.Bundle;
 import android.util.Log;
 import android.widget.RemoteViews;
 
-import org.jsoup.Jsoup;
-import org.jsoup.nodes.Document;
-import org.jsoup.nodes.Element;
-import org.jsoup.select.Elements;
-
-import java.io.IOException;
-import java.util.ArrayList;
 import java.util.Random;
 
 /**
@@ -31,6 +23,7 @@ public class AppWidget extends AppWidgetProvider {
 
         // start data download service
         Intent fetchIntent = new Intent(context, FetchService.class);
+        fetchIntent.setAction(FetchService.APPWIDGET_CALLBACK);
         fetchIntent.putExtra(AppWidgetManager.EXTRA_APPWIDGET_IDS, appWidgetIds);
         context.startService(fetchIntent);
         Log.d(TAG, "FetchService called");
@@ -45,7 +38,7 @@ public class AppWidget extends AppWidgetProvider {
         String action = intent.getAction();
         String result = intent.getStringExtra(AppWidgetManager.EXTRA_CUSTOM_EXTRAS);
 
-        if (action.equals(FetchService.CALLBACK) && result != null) {
+        if (action.equals(FetchService.APPWIDGET_CALLBACK) && result != null) {
             int[] appWidgetIds = intent.getIntArrayExtra(AppWidgetManager.EXTRA_APPWIDGET_IDS);
             if (appWidgetIds != null && appWidgetIds.length > 0) {
                 for (int appWidgetId : appWidgetIds) {
@@ -63,9 +56,7 @@ public class AppWidget extends AppWidgetProvider {
         serviceIntent.putExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, appWidgetId);
         serviceIntent.putExtra(AppWidgetManager.EXTRA_CUSTOM_EXTRAS, result);
 
-        /* set RandomNumber to intent, to hack non-refreshing listview due to caching old data */
-        String randomNumber = String.valueOf(new Random().nextInt());
-        serviceIntent.setData(Uri.fromParts("content", randomNumber, null));
+        hackListview(serviceIntent);
 
         RemoteViews remoteViews = new RemoteViews(context.getPackageName(), R.layout.appwidget);
 
@@ -76,6 +67,12 @@ public class AppWidget extends AppWidgetProvider {
         remoteViews.setPendingIntentTemplate(R.id.listview, pi);
         remoteViews.setRemoteAdapter(appWidgetId, R.id.listview, serviceIntent);
         appWidgetManager.updateAppWidget(appWidgetId, remoteViews);
+    }
+
+    /* set RandomNumber to intent, to hack non-refreshing listview due to caching old data */
+    private void hackListview(Intent intent) {
+        String randomNumber = String.valueOf(new Random().nextInt());
+        intent.setData(Uri.fromParts("content", randomNumber, null));
     }
 
 }

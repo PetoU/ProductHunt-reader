@@ -14,7 +14,6 @@ public class WidgetService extends RemoteViewsService {
 
     @Override
     public RemoteViewsFactory onGetViewFactory(Intent intent) {
-        Log.d("WidgetService", "onGetViewFactory");
         String result = intent.getStringExtra(AppWidgetManager.EXTRA_CUSTOM_EXTRAS);
         return new ViewFactory(result, getApplicationContext());
     }

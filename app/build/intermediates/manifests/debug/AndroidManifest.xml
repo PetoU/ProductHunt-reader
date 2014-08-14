@@ -4,9 +4,7 @@
     android:versionCode="1"
     android:versionName="1.0" >
 
-    <uses-feature
-        android:name="android.software.app_widgets"
-        android:required="true" />
+    <uses-feature android:name="android.software.app_widgets" />
 
     <uses-permission android:name="android.permission.INTERNET" />
 
@@ -16,11 +14,12 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@drawable/ic_launcher"
+        android:icon="@drawable/producthunt_logo"
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
-            android:name="com.elpmaxe.petou.producthunt.MyActivity"
+            android:name="com.elpmaxe.petou.producthunt.StartActivity"
+            android:icon="@drawable/producthunt_logo"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -45,12 +44,10 @@
         <service
             android:name="com.elpmaxe.petou.producthunt.WidgetService"
             android:exported="false"
-            android:permission="android.permission.BIND_REMOTEVIEWS" >
-        </service>
+            android:permission="android.permission.BIND_REMOTEVIEWS" />
         <service
             android:name="com.elpmaxe.petou.producthunt.FetchService"
-            android:enabled="true" >
-        </service>
+            android:enabled="true" />
     </application>
 
 </manifest>
