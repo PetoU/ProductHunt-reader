@@ -24,14 +24,15 @@ public final class R {
         public static final int triangle=0x7f020004;
     }
     public static final class id {
-        public static final int action_settings=0x7f090007;
-        public static final int description=0x7f090006;
-        public static final int layout=0x7f090001;
-        public static final int layout_votes=0x7f090003;
-        public static final int listview=0x7f090002;
-        public static final int main_listview=0x7f090000;
-        public static final int name=0x7f090005;
-        public static final int votes=0x7f090004;
+        public static final int action_settings=0x7f090008;
+        public static final int description=0x7f090007;
+        public static final int layout=0x7f090002;
+        public static final int layout_votes=0x7f090004;
+        public static final int listview=0x7f090003;
+        public static final int main_listview=0x7f090001;
+        public static final int name=0x7f090006;
+        public static final int swipe_container=0x7f090000;
+        public static final int votes=0x7f090005;
     }
     public static final class layout {
         public static final int activity_my=0x7f030000;

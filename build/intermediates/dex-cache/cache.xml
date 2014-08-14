@@ -7,5 +7,17 @@
         jumboMode="false"
         revision="19.1.0"
         sha1="ab1f22cadc2f8b514e55ba368f5128056fe304da"/>
+    <item
+        dex="/Users/PetoU/Documents/AndroiStudioProjects/ProductHunt/app/build/intermediates/pre-dexed/debug/support-v4-19.1.0-e70d684324bcbb14e5c9c2a4f1490f26a0268500.jar"
+        jar="/Users/PetoU/Documents/Projects/sdk/extras/android/m2repository/com/android/support/support-v4/19.1.0/support-v4-19.1.0.jar"
+        jumboMode="false"
+        revision="19.1.0"
+        sha1="85f201b380937e61a9dce6ca90ccf6872abbfb67"/>
+    <item
+        dex="/Users/PetoU/Documents/AndroiStudioProjects/ProductHunt/app/build/intermediates/pre-dexed/debug/support-v13-19.1.0-9c4ce5577682e337d53e60656e887ff82e599fb4.jar"
+        jar="/Users/PetoU/Documents/Projects/sdk/extras/android/m2repository/com/android/support/support-v13/19.1.0/support-v13-19.1.0.jar"
+        jumboMode="false"
+        revision="19.1.0"
+        sha1="6b852a232f642c75a7fdfc7212b841b8c8f8959c"/>
 
 </pre-dex-items>

@@ -84,9 +84,9 @@
                 </string>
                 <string name="NAME" >Name
                 </string>
-                <string name="VOTES" >votes
-                </string>
                 <string name="hello_world" >Hello world!
+                </string>
+                <string name="VOTES" >votes
                 </string>
                 <string name="DESCRIPTION" >description
                 </string>
